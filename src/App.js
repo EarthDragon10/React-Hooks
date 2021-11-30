@@ -1,4 +1,4 @@
-import Inizio from "./lezioni/2-useEffect/inizio/1-useEffect-basi";
+import Inizio from "./lezioni/6-useReducer/inizio/index";
 
 // Progetto per ripassare React
 
