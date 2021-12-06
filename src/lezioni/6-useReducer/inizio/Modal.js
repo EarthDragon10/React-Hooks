@@ -1,7 +1,6 @@
 import React from "react";
 
 const Modal = ({ modalContent, modalState, openModal }) => {
-  console.log(modalState);
   return (
     <section className={`modal-section ${modalState ? "show-modal" : ""}`}>
       <div className="container modal-content">

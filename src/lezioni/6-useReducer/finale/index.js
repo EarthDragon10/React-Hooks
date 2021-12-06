@@ -18,6 +18,7 @@ const Index = () => {
   /**
    * @type {[Object, Function]} state
    */
+  // dispatch è una funzione che fa eseguire certe azioni
   const [state, dispatch] = useReducer(reducer, intitialState);
 
   /**
@@ -46,6 +47,7 @@ const Index = () => {
     <>
       <div>
         <h3>Premi qui per aprire il Modal</h3>
+        <button onClick={tiPremo}>Mi devi premere</button>
         <button className="button" onClick={apriModal}>
           Mostrami
         </button>

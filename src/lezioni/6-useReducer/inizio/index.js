@@ -1,27 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import Modal from "./Modal";
 
-const Index = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState("Eccomi, sono un Modal");
+const reducer = (state, action) => {
+  console.log({ state: state, action: action });
 
-  const openModal = () => {
-    setIsModalOpen(!isModalOpen);
+  switch (action.type) {
+    case "PREMO_BOTTONE":
+      return console.log("bottone premuto");
+
+    default:
+      return console.log("qualcosa è andato storto");
+  }
+};
+
+const initialState = {
+  isModalOpen: false,
+  modalContent: "Eccomi, sono un modal.",
+};
+
+const Index = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // console.log(state);
+
+  const tiPremo = () => {
+    dispatch({ type: "PREMO_BOTTONE" });
   };
 
   return (
     <>
       <div>
         <h3>Premi qui per aprire il Modal</h3>
-        <button className="button" onClick={openModal}>
+        <button className="button" onClick={tiPremo}>
           Mostrami
         </button>
       </div>
-      <Modal
-        modalContent={modalContent}
-        modalState={isModalOpen}
-        openModal={openModal}
-      />
+      <Modal modalContent={state.modalContent} modalState={state.isModalOpen} />
     </>
   );
 };
