@@ -1,17 +1,7 @@
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 import Modal from "./Modal";
-
-const reducer = (state, action) => {
-  console.log({ state: state, action: action });
-
-  switch (action.type) {
-    case "PREMO_BOTTONE":
-      return console.log("bottone premuto");
-
-    default:
-      return console.log("qualcosa è andato storto");
-  }
-};
+import reducer from "./reducer";
+import { APRI_MODAL, CHIUDI_MODAL } from "./actions";
 
 const initialState = {
   isModalOpen: false,
@@ -27,15 +17,27 @@ const Index = () => {
     dispatch({ type: "PREMO_BOTTONE" });
   };
 
+  const apriModal = () => {
+    dispatch({ type: APRI_MODAL, payload: "il mio nuovo modal" });
+  };
+
+  const chiudiModal = () => {
+    dispatch({ type: CHIUDI_MODAL });
+  };
+
   return (
     <>
       <div>
         <h3>Premi qui per aprire il Modal</h3>
-        <button className="button" onClick={tiPremo}>
+        <button className="button" onClick={apriModal}>
           Mostrami
         </button>
       </div>
-      <Modal modalContent={state.modalContent} modalState={state.isModalOpen} />
+      <Modal
+        modalContent={state.modalContent}
+        modalState={state.isModalOpen}
+        chiudiModal={chiudiModal}
+      />
     </>
   );
 };
