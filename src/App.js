@@ -1,5 +1,4 @@
-import Inizio from "./lezioni/6-useReducer/inizio/index";
-
+import Inizio from "./lezioni/7-prop-drilling/inizio/prop-drilling";
 // Progetto per ripassare React
 
 function App() {
