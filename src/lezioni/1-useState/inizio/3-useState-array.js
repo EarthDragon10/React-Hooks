@@ -6,8 +6,10 @@ const ArrayState = () => {
   console.log(people);
 
   const removeItem = (id) => {
-    let newPeople = people.filter((el) => el.id !== id);
-    setPeople(newPeople);
+    // let newPeople = people.filter((el) => el.id !== id);
+    setPeople((prevPeole) => {
+      return prevPeole.filter((el) => el.id !== id);
+    });
   };
 
   return (
