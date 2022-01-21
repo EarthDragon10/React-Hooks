@@ -4,11 +4,15 @@ const CounterComponent = () => {
   let [contatore, setContatore] = useState(0);
 
   const incrementHandler = () => {
-    setContatore(++contatore);
+    setContatore((oldValue) => {
+      return oldValue + 1;
+    });
   };
 
   const decrementHandler = () => {
-    setContatore(--contatore);
+    setContatore((oldValue) => {
+      return oldValue - 1;
+    });
   };
 
   const resethandler = () => {
