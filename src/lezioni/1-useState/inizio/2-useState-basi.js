@@ -5,14 +5,33 @@ import React, { useState } from "react";
 // Gli Hook non possono essere utilizzati in maniera condizionale
 
 const UsoBase = () => {
-	const { log } = console;
-	log(useState("a"));
+  //   const { log } = console;
+  //   const value = useState()[0];
+  //   const handler = useState()[1];
 
-	return (
-		<>
-			<h2> Basi useState</h2>
-		</>
-	);
+  //   log(useState("useState"));
+  //   log({ value: value, handler: handler });
+
+  const [title, setTitle] = useState("Hello World");
+
+  const changeTitle = () => {
+    title === "Hello World"
+      ? setTitle("Title changed")
+      : setTitle("Hello World");
+  };
+
+  return (
+    <>
+      <h2>{title}</h2>
+      <button
+        type="button"
+        className="btn btn-info shadow my-3"
+        onClick={changeTitle}
+      >
+        Change Me
+      </button>
+    </>
+  );
 };
 
 export default UsoBase;
