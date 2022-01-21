@@ -1,4 +1,4 @@
-import Inizio from "./lezioni/1-useState/inizio/2-useState-basi";
+import Inizio from "./lezioni/1-useState/inizio/1-errore-base";
 
 // Progetto per ripassare React
 
