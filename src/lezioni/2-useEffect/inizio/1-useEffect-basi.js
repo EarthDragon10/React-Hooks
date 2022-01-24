@@ -14,6 +14,8 @@ const useEffectBasi = () => {
     } else {
       document.title = `Nuovi messaggi : ${value}`;
     }
+
+    return () => console.log("clean-up function called");
   }, [value]);
 
   return (
