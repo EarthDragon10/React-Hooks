@@ -8,7 +8,7 @@ const ErroreBase = () => {
 
   const changeTitle = () => {
     const title = "Nuovo titolo";
-    console.log(title);
+    // console.log(title);
     setTitle(title);
   };
 

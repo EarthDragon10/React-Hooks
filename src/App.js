@@ -1,4 +1,4 @@
-import Inizio from "./lezioni/1-useState/inizio/3-useState-array";
+import Inizio from "./lezioni/2-useEffect/inizio/1-useEffect-basi";
 
 // Progetto per ripassare React
 
