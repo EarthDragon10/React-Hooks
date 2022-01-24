@@ -9,7 +9,11 @@ const useEffectBasi = () => {
 
   useEffect(() => {
     console.log("Use Effect chiamato");
-    document.title = `Nuovo messaggio : ${value}`;
+    if (value < 1) {
+      document.title = `Nessun messaggio`;
+    } else {
+      document.title = `Nuovi messaggi : ${value}`;
+    }
   });
 
   return (
