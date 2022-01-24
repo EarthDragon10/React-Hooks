@@ -1,11 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 const url = "https://api.github.com/users";
 
 const FetchComponent = () => {
+  const [users, setUsers] = useState([]);
+
+  const getData = async () => {
+    // axios
+    //   .get(url)
+    //   .then((response) =>
+    //     setUsers(response.data).cath((err) => console.log(err))
+    //   );
+
+    const response = await axios.get(url);
+    console.log(response);
+    setUsers(response.data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div>
+    <>
       <h1>Fetch Component</h1>
-    </div>
+      <ul className="users">
+        {users.map((el) => {
+          const { id, login, avatar_url: img, html_url } = el;
+          return (
+            <li key={id} className="shadow">
+              <img src={img} alt={login} />
+              <div>
+                <h5>{login}</h5>
+                <a href={html_url}>Profile</a>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 };
 
