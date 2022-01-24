@@ -14,7 +14,7 @@ const useEffectBasi = () => {
     } else {
       document.title = `Nuovi messaggi : ${value}`;
     }
-  });
+  }, [value]);
 
   return (
     <div className="item">
