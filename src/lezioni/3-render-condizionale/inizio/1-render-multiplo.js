@@ -17,8 +17,6 @@ const ConditionalCompining = () => {
 
       console.log(response);
 
-      const { login } = response.data;
-
       setUser(response.data);
     } catch (error) {
       console.log(error);
