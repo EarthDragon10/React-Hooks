@@ -13,7 +13,7 @@ const FetchComponent = () => {
     //   );
 
     const response = await axios.get(url);
-    console.log(response);
+    // console.log(response);
     setUsers(response.data);
   };
 
