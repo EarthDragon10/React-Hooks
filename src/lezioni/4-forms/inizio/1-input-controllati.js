@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ControlledInput = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Inviato");
+
+    if (name && email && phone) {
+      console.log({ name, email, phone });
+      setName("");
+      setEmail("");
+      setPhone("");
+    } else {
+      alert("Devi riempire il form!");
+    }
+  };
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setPhone(value);
   };
 
   return (
@@ -16,6 +33,8 @@ const ControlledInput = () => {
           id="name"
           type="text"
           name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           className="form-control col-9"
         ></input>
       </div>
@@ -27,6 +46,8 @@ const ControlledInput = () => {
           id="email"
           type="email"
           name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="form-control col-9"
         ></input>
       </div>
@@ -38,6 +59,8 @@ const ControlledInput = () => {
           id="phone"
           type="tel"
           name="phone"
+          value={phone}
+          onChange={handleChange}
           className="form-control col-9"
         ></input>
       </div>
