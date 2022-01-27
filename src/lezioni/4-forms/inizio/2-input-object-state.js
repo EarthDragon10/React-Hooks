@@ -1,25 +1,38 @@
 import React, { useEffect, useState } from "react";
 
 const ControlledInput = () => {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [cellulare, setCellulare] = useState("");
+  // const [nome, setNome] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [cellulare, setCellulare] = useState("");
+
+  const [persona, setPersona] = useState({
+    nome: "",
+    email: "",
+    cellulare: "",
+  });
+
   const [persone, setPersone] = useState([]);
 
   const handleSumbit = (e) => {
     e.preventDefault();
-    setPersone([
-      ...persone,
-      {
-        id: persone.length + 1,
-        nome,
-        email,
-        cellulare,
-      },
-    ]);
-    setNome("");
-    setEmail("");
-    setCellulare("");
+    console.log(persona);
+    // setPersone([
+    //   ...persone,
+    //   {
+    //     id: persone.length + 1,
+    //     nome,
+    //     email,
+    //     cellulare,
+    //   },
+    // ]);
+    // setNome("");
+    // setEmail("");
+    // setCellulare("");
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log(persona[name]);
   };
 
   useEffect(() => {
@@ -38,8 +51,8 @@ const ControlledInput = () => {
           id="nome"
           name="nome"
           className="form-control col-9"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
+          value={persona.nome}
+          onChange={handleChange}
         />
       </div>
       <div className="form-group  d-flex align-items-center justify-content-around container">
@@ -52,8 +65,7 @@ const ControlledInput = () => {
           id="email"
           name="email"
           className="form-control col-9"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={persona.email}
         />
       </div>
       <div className="form-group  d-flex align-items-center justify-content-around container">
@@ -66,8 +78,7 @@ const ControlledInput = () => {
           id="cellulare"
           name="cellulare"
           className="form-control col-9"
-          value={cellulare}
-          onChange={(e) => setCellulare(e.target.value)}
+          value={persona.cellulare}
         />
       </div>
       <button type="submit" className="btn btn-info ">
