@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ControlledInput = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [people, setPeople] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (name && email && phone) {
       console.log({ name, email, phone });
+      setPeople([
+        ...people,
+        {
+          id: new Date(Date.now().getTime().toString()),
+          name,
+          email,
+          phone,
+          people,
+        },
+      ]);
+
       setName("");
       setEmail("");
       setPhone("");
@@ -22,6 +34,11 @@ const ControlledInput = () => {
     const { value } = e.target;
     setPhone(value);
   };
+
+  useEffect(() => {
+    const { log } = console;
+    log(people);
+  });
 
   return (
     <form className="bg-white shadow rounded p-4">
